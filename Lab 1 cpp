@@ -1,30 +1,56 @@
-
+//1 ամենամեծ ընդհանուր բաժանարար
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
-int newFunc(int num1, int num2) {
-	int result = min(num1, num2);
-
-	while (result > 0) {
-
-		if (num1 % result == 0 && num2 % result == 0) {
-			break;
-		}
-		result--;
-	}
-	return result;
+int newFunc(int a, int b) {
+    while (b != 0) {
+        a = a % b;
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    return a;
 }
 
-int main()
-{
-	int num1, num2;
-	cout << "Enter the numbers";
-	cin >> num1 >> num2;
-	
-	cout<< newFunc(num1, num2);
-	
+    int main() {
+        int a, b;
+        cout << "Enter the numbers: ";
+        cin >> a >> b;
 
+        cout << newFunc(a, b) << endl;
+
+        return 0;
+    }
+
+
+//2 ամենափոքր ընդհանուր բազմապատիկ
+#include <iostream>
+using namespace std;
+
+
+int newFunc(int a, int b) {
+    int multiple;
+    if (a > b) {
+        multiple = a;
+    }
+    else {
+        multiple = b;
+    }
+    
+    while (multiple % a != 0 || multiple % b != 0) {
+        multiple++;
+    }
+
+    return multiple;
 }
 
+int main() {
+    int a, b;
+    cout << "Enter the numbers: ";
+    cin >> a >> b;
+
+    cout << newFunc(a, b) << endl;
+
+    return 0;
+}
 
